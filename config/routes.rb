@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get '/boards', to: 'boards#index'
+  root 'boards#index'
+
+  resources :boards
 end
