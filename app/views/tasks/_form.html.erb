@@ -1,0 +1,18 @@
+<%= form_with model: [ @board, @board.tasks.build ] do |form| %>
+  <p>
+    <%= form.label :title_task %><br>
+    <%= form.text_field :title_task %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.text_area :status %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+

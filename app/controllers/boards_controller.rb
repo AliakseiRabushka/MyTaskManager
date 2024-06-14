@@ -12,7 +12,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(title: '...', body: '...')
+    @board = Board.new(board_params)
 
     if @board.save
       redirect_to @board
