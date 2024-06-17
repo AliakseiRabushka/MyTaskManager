@@ -28,7 +28,7 @@ class BoardsController < ApplicationController
   def update
     @board = Board.find(params[:id])
 
-    if @board.update(article_params)
+    if @board.update(board_params)
       redirect_to @board
     else
       render :edit, status: :unprocessable_entity

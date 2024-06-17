@@ -1,4 +1,4 @@
-<%= form_with model: [ @board, @board.tasks.build ] do |form| %>
+<%= form_with model: [@board, @task ] do |form| %>
   <p>
     <%= form.label :title_task %><br>
     <%= form.text_field :title_task %>

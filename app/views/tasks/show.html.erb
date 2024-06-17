@@ -1,0 +1,15 @@
+<%= link_to "Back", board_path(@board) %>
+
+<h1><%= @task.title_task %></h1>
+
+<p><%= @task.body %></p>
+<p><%= @task.status %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_board_task_path(@board) %></li>
+
+  <li><%= link_to "Destroy", board_task_path(@board), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
