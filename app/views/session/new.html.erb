@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="title">Login</h2>
+  <p>Enter your email and password to log in to the site</p>
+
+  <div>
+    <%= form_with scope: :session, url: session_index_path, data: {turbo: false} do |form| %>
+      <p><%= form.label :email %></p>
+      <p><%= form.text_field :email, class: '' %></p>
+
+      <p><%= form.label :password %></p>
+      <p><%= form.password_field :password, class: '' %></p>
+      
+      <p><%= form.submit 'Sign in', class: ''%></p>
+    <% end %>
+  </div>
+</div>

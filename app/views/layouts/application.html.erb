@@ -11,6 +11,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <div class="">
+        <p><%= link_to "MyTaskManager", root_path %></p>
+        <div>
+          <% if current_user.present? %>
+            <%= "@#{current_user.nickname}" %>
+            <%= button_to "Sign out", session_path(session), method: :delete %>
+          <% else %>
+            <%= link_to "Registration", new_user_path, class: '' %>
+            <%= link_to "Login", new_session_path, class: '' %>
+          <% end %>
+        </div>
+      </div>
+
+      <% if flash[:notice].present? %>
+        <p><%= flash[:notice] %></p>
+      <% elsif flash[:alert].present? %>
+        <p><%= flash[:alert] %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
