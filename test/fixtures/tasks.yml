@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title_task: MyString
+  body: MyText
+  status: MyString
+  board: one
+
+two:
+  title_task: MyString
+  body: MyText
+  status: MyString
+  board: two

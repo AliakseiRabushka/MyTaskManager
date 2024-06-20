@@ -1,0 +1,28 @@
+<%= link_to "Back", root_path %>
+
+<h1><%= @board.title %></h1>
+
+<p><%= @board.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_board_path(@board) %></li>
+  <li><%= link_to "Destroy", board_path(@board), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2>Tasks</h2>
+
+<ul>
+  <% @board.tasks.each do |task| %>
+    <li>
+      <a href="/boards/<%= @board.id %>/tasks/<%= task.id %>">
+        <%= task.title_task %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add new task", new_board_task_path(@board) %>
+
