@@ -9,3 +9,6 @@ console:
 
 routes:
 	bin/rails routes
+
+tailwind:
+	bin/rails tailwindcss:watch

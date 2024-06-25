@@ -9,5 +9,13 @@
 
 <%= link_to "Add new board", new_board_path %>
 
+<p class="mt-44 text-purple text-3xl italic underline bg-green">Test tailwind</p>
+<h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
+<div x-data="{ count: 0 }">
+    <button x-on:click="count++">Increment</button>
+ 
+    <span x-text="count"></span>
+</div>
+
 
 
