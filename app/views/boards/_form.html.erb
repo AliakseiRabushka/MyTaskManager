@@ -7,7 +7,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="mb-5">
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
     <% board.errors.full_messages_for(:body).each do |message| %>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="flex w-28 p-1 border-2 mx-auto border-black rounded-md hover:bg-blue">
     <%= form.submit %>
   </div>
 <% end %>

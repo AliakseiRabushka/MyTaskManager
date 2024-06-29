@@ -14,15 +14,17 @@
 
   <body>
     <div>
-      <div class="">
-        <p><%= link_to "MyTaskManager", root_path %></p>
-        <div>
+      <div class="flex justify-between p-5 bg-gray mb-5">
+        <p class="text-orange text-6xl font-mono font-black mx-auto self-center pl-40 hover:underline"><%= link_to "MyTaskManager", root_path %></p>
+        <div class="flex items-center place-items-end gap-2">
           <% if current_user.present? %>
-            <%= "@#{current_user.nickname}" %>
-            <%= button_to "Sign out", session_path(session), method: :delete %>
+            <div class="flex p-0.5 px-2 rounded-md bg-green">
+              <%= "@#{current_user.nickname}" %>
+            </div>
+            <%= button_to "Sign out", session_path(session), method: :delete, class: "flex p-1 border-2 border-black rounded-md hover:bg-blue" %>
           <% else %>
-            <%= link_to "Registration", new_user_path, class: '' %>
-            <%= link_to "Login", new_session_path, class: '' %>
+            <%= link_to "Registration", new_user_path, class: "flex p-1 border-2 border-black rounded-md bg-white hover:bg-blue" %>
+            <%= link_to "Login", new_session_path, class: "flex p-1 border-2 border-black rounded-md bg-white hover:bg-blue" %>
           <% end %>
         </div>
       </div>
