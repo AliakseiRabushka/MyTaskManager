@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center font-mono mx-auto self-center px-10 mb-10">
+<div class="flex justify-between items-center font-mono mx-auto self-center px-10 mb-3">
   <%= link_to "Add new task", new_board_task_path(@board), class: "hover:underline" %>
   <div class="flex-col">
     <h1 class="text-3xl mb-2 font-bold"><%= @board.title %></h1>
@@ -12,15 +12,25 @@
                     } %></li>
   </ul>
 </div>
+<hr class="mb-5">
 
-<ul>
+<div class="p-6">
   <% @board.tasks.each do |task| %>
-    <li>
-      <a href="/boards/<%= @board.id %>/tasks/<%= task.id %>">
-        <%= task.title_task %>
-      </a>
-    </li>
+    <div class="flex justify-between border rounded font-mono mb-0.5">
+      <h1 class="min-w-36 px-3 border-r"><%= task.title_task %></h1>
+      <p class="w-1/2 border-r"><%= task.body %></p>
+      <p class="w-36 border-r"><%= task.status %></p>
+      <p class="w-36">person</p>
+      <div class="bg-blue px-3 items-center">
+        <%= link_to "Edit", edit_board_task_path(@board), class: "hover:underline" %>
+        |
+        <%= link_to "Destroy", board_task_path(@board), class: "hover:underline", data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      } %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 
