@@ -1,0 +1,21 @@
+<div class="container">
+  <h2 class="title">Edit</h2>
+
+  <div>
+    <%= form_with model: @user do |form| %>
+      <p><%= form.label :name, 'Your name' %></p>
+      <p><%= form.text_field :name, class: '' %></p>
+
+      <p><%= form.label :nickname, 'Your nickname' %></p>
+      <p><%= form.text_field :nickname, class: '' %></p>
+
+      <p><%= form.label :email %></p>
+      <p><%= form.text_field :email, class: '' %></p>
+      
+      <p><%= form.label :password %></p>
+      <p><%= form.password_field :password, class: '' %></p>
+
+      <p><%= form.submit 'Edit', class: ''%></p>
+    <% end %>
+  </div>
+</div>

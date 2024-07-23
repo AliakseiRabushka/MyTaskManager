@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_21_145635) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_23_120644) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_21_145635) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "boards_users", id: false, force: :cascade do |t|
+    t.bigint "board_id"
+    t.bigint "user_id"
+    t.index ["board_id"], name: "index_boards_users_on_board_id"
+    t.index ["user_id"], name: "index_boards_users_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title_task"
     t.text "body"
@@ -28,7 +35,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_21_145635) do
     t.bigint "board_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
+    t.bigint "user_id"
     t.index ["board_id"], name: "index_tasks_on_board_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "tasks_users", id: false, force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "user_id"
+    t.index ["task_id"], name: "index_tasks_users_on_task_id"
+    t.index ["user_id"], name: "index_tasks_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

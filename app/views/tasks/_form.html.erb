@@ -9,7 +9,12 @@
   </p>
   <p class="mb-5">
     <%= form.label :status %><br>
-    <%= form. :status %>
+    <%= form.select :status, ["In Dev", "QA", "Done"] %>
+  </p>
+  </p>
+  <p class="mb-5">
+    <%= form.label :nickname %><br>
+    <%= form.select :nickname, @users.map {|user| user.nickname} %>
   </p>
   <p class="flex w-28 p-1 border-2 mx-auto border-black rounded-md hover:bg-blue">
     <%= form.submit %>
