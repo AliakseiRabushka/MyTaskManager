@@ -6,6 +6,8 @@ ruby '3.2.1'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
 
+gem 'pry-rails', '~> 0.3.11'
+
 gem 'pg', '1.5.6'
 
 gem 'postgresql', '1.0.0'
@@ -74,4 +76,4 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem "tailwindcss-rails", "~> 2.6"
+gem 'tailwindcss-rails', '~> 2.6'

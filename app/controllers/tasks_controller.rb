@@ -12,17 +12,20 @@ class TasksController < ApplicationController
   def new
     @board = Board.find(params[:board_id])
     @task = Task.new
+    @users = User.all
   end
 
   def create
     @board = Board.find(params[:board_id])
     @task = @board.tasks.create(task_params)
+    @user = User.find_by(nickname: task_params[:nickname])
     redirect_to board_path(@board)
   end
 
   def edit
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
+    @users = User.all
   end
 
   def update
@@ -47,6 +50,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title_task, :body, :status)
+    params.require(:task).permit(:title_task, :body, :status, :nickname)
   end
 end

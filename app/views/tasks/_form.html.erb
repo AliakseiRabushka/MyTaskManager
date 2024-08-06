@@ -1,4 +1,4 @@
-<%= form_with model: [@board, @task ] do |form| %>
+<%= form_with model: [@board, @task] do |form| %>
   <p>
     <%= form.label :title_task %><br>
     <%= form.text_field :title_task %>
@@ -14,7 +14,7 @@
   </p>
   <p class="mb-5">
     <%= form.label :nickname %><br>
-    <%= form.select :nickname, @users.map {|user| user.nickname} %>
+    <%= form.select :nickname, [@users.map { |user| user.nickname }] %>
   </p>
   <p class="flex w-28 p-1 border-2 mx-auto border-black rounded-md hover:bg-blue">
     <%= form.submit %>
